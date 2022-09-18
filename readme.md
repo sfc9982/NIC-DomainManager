@@ -17,9 +17,7 @@
 
 # 前言
 
-思路参考来自[@guimaizi](https://github.com/guimaizi/get_domain)师傅的子域名收集与监测V3.0，以及Django完成的一套Src子域名资产检测系统。
-
-LangSrcCurise资产监控系统是一套通过网络搜索引擎监控其下指定域名，并且能进行持续性信息收集整理的自动化资产监控管理系统，基于Django开发。
+域名资产监控系统是一套通过网络搜索引擎监控其下指定域名，并且能进行持续性信息收集整理的自动化资产监控管理系统，基于Django开发。
 
 **本项目仅进行资产持续收集监控，无漏洞利用、攻击性行为，请使用者遵守当地相关法律，勿用于非授权测试，如作他用所承受的法律责任一概与作者无关，下载使用即代表使用者同意上述观点。**
 
@@ -74,10 +72,10 @@ LangSrcCurise资产监控系统是一套通过网络搜索引擎监控其下指�
 
 依次安装以下服务：
 
-1. python3.6
+1. Python 3.6
 2. nmap
-3. sudo python3 -m pip install -r requirement.txt
-4. MySQL8.0
+3. `sudo python3 -m pip install -r requirement.txt`
+4. MySQL 8.0
 
 **注：在linux下执行任何生成数据库，启动任何服务命令前都需要加上 sudo**
 
@@ -86,10 +84,10 @@ LangSrcCurise资产监控系统是一套通过网络搜索引擎监控其下指�
 
 依次安装如下服务：
 
-1. python3.6
-2. nmap并添加到环境变量
-3. python3 -m pip install -r requirement.txt
-4. MySQL8.0
+1. Python 3.6
+2. nmap（并添加到环境变量）
+3. `python3 -m pip install -r requirement.txt`
+4. MySQL 8.0
 
 
 # 配置环境
@@ -143,23 +141,24 @@ securitytrails = PWOSUIBIANXIEDE886X
 
 下方为接受每日报表邮箱信息，因为前期没有做好程许构架，代码内写死每天下午20点30分自动发送到邮箱，如果需要修改发送时间，修改代码
 
-    core/Send_Report.py 
+`core/Send_Report.py`
     
 修改最下方时间点后，然后重启扫描端即可
 
+```
+[Email]
+host = smtp.163.com
+# 邮箱使用服务器，一般用的163邮箱或者qq邮箱，具体方法自行百度，建议是163邮箱
+port = 465
+# 邮箱服务器端口
+username = LangSrcCurise@163.com
+# 邮箱账号
+password = test12345
+# 邮箱的密码，163或qq邮箱需要开启pop3服务后，得到授权码，这里填写授权码，具体流程可以百度
+receivers = 9966771@qq.com,9966772@qq.com,9966773@qq.com,9966774@qq.com
+# 这里填写接收报告的邮箱地址，多个邮箱使用,分隔。单个邮箱填写单个邮箱地址即可。
+```
 
-    [Email]
-    host = smtp.163.com
-    # 邮箱使用服务器，一般用的163邮箱或者qq邮箱，具体方法自行百度，建议是163邮箱
-    port = 465
-    # 邮箱服务器端口
-    username = LangSrcCurise@163.com
-    # 邮箱账号
-    password = test12345
-    # 邮箱的密码，163或qq邮箱需要开启pop3服务后，得到授权码，这里填写授权码，具体流程可以百度
-    receivers = 9966771@qq.com,9966772@qq.com,9966773@qq.com,9966774@qq.com
-    # 这里填写接收报告的邮箱地址，多个邮箱使用,分隔。单个邮箱填写单个邮箱地址即可。
-    
 遇到User has no permission。这是由于邮箱账号没有开启授权。需要登录网易邮箱，在“设置”--->“客户端授权密码”--->开启客户端登录授权即可。
 
 ![](image/2021.png)
